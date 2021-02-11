@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+   <Title>Resume Rankingn App</Title>
+   <head>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <base target="_top">
+      <style type="text/css">
+      body { font-family: Arial, Helvetica, sans-serif; height:auto; min-width:250px; width:640px; margin: 10; padding:10;  }
+      #div1
+      {
+        width: 350px;
+        height: 50px;
+        color: #FFD700;
+        background-color: black; 
+        font-size:35px;
+        text-align: center;
+      }
+      #div2
+      {
+        width: 50px;
+        height: 30px;
+        transform:rotate(30deg);
+        -ms-transform:rotate(30deg); /* IE 9 */
+        -moz-transform:rotate(30deg); /* Firefox */
+        -webkit-transform:rotate(30deg); /* Safari and Chrome */
+        -o-transform:rotate(30deg); /* Opera */
+        background-color: #FFD700;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>      
+   </head>
+   <body>
+      <div id="div1">Resume Ranking</div>
+      <div id="div2"><h4>By <a href="mailto://your_email_address" style="color: coralblue">your_name</a></h4></div>      
+      <div id="dialog" title=""></div><br />
+      <br>
+      <form>
+        <label><p style="font-size:15px">Job description google doc URL or document ID :</p></label>
+        <input type="text" id="jd_url" style="font-size:15px; width: 500px; height: 20px;"/>
+        <input type="button" onClick="update_jd()" value="Load JD" style="font-size:15px; height: 20px;" />
+        <br />
+        <textarea id='msg' name="Message" rows="15" cols="45" style="font-size:15px; width: 600px; border:solid 1px orange;"></textarea>
+        <br />
+        <label><p style="font-size:15px">Folder name for the resume (must be located under root folder.):</p></label>
+        <input type="text" id="cv_path" style="font-size:15px; width: 500px; height: 20px;"/>
+        <input type="button" onClick="read_folder()" value="Scan files" style="font-size:15px; height: 20px;" />
+        <br />        
+        <label id='result'><pre></pre></label>
+        <br />
+        <script type="text/javascript">
+          document.getElementById("jd_url").value = '';
+          document.getElementById("cv_path").value = '';
+          function update_jd() {
+            function onSuccess(msg) {
+              document.getElementById("msg").innerHTML = msg;
+            }
+            jd_fid = document.getElementById("jd_url").value;
+            google.script.run.withSuccessHandler(onSuccess).load_jd(jd_fid);
+          }
+          function read_folder() {
+            function onSuccess( result_list) {              
+              document.getElementById("result").innerHTML = result_list;
+              popup("Resume Ranking", "Ranking task completed.");
+              return;
+            }
+            jd_fid = document.getElementById("jd_url").value;
+            if (jd_fid == '') {
+              popup('JD-FolderID field mandatory','Please fill the document ID for the JD google-doc.');
+              return;
+            }
+            cv_path = document.getElementById("cv_path").value;
+            if (cv_path == '') {
+              popup('CV-Folder field mandatory','Please fill the folder name containing the resumes.');
+              return;
+            }
+            document.getElementById("result").innerHTML = '<p>Please wait for a moment.....</p>';
+            google.script.run.withSuccessHandler(onSuccess).scan_resume(cv_path, jd_fid);
+          }
+          function popup(title,msg) {      
+            document.getElementById("dialog").title = title;
+            document.getElementById("dialog").innerHTML = msg;
+            $( "#dialog" ).dialog();
+          }  
+        </script>
+      </form>
+      <script type="text/javascript">
+      </script>
+   </body>
+</html>
