@@ -15,17 +15,17 @@ To compare resume using cosine similarity on JD ( job description in google docs
 [1]\
 You need your own google account to access the google drive.\
 To create a folder called "Resumes" under the root. Save the JD into google document format inside.\
-Upload a few resumes files inside. It can be word document format, google document format, PDF, Text format.\
+Upload a few resumes files inside. It can be word document format, google document format, PDF, Text format.
 
 [2]\
 Goto https://script.google.com/home to create new project , take the source code Code.gs and Index.html from this place.\
 Inside the project, add the services "Google Drive API" and "Google Document API" accordingly.\
 \
-Click on the "Deploy" button to define the project deployment type as "Web App".\
+Click on the "Deploy" button to define the project deployment type as "Web App".
 
 ### Learning Google App Script
 
-You can find the official documentation from Google, example.\
+You can find the official documentation from Google, example.
 
     https://developers.google.com/apps-script/articles/tutorials
 
