@@ -12,13 +12,12 @@ Resume Ranking baesd on a given JD ( job description google document).
 To compare resume using cosine similarity on JD ( job description in google docs ) versus resumes files inside google drive.
 
 ## What to create this app
-[1]
+[1]\
 You need your own google account to access the google drive.\
 To create a folder called "Resumes" under the root. Save the JD into google document format inside.\
 Upload a few resumes files inside. It can be word document format, google document format, PDF, Text format.\
-&nbsp;
-&nbsp;
-[2]
+
+[2]\
 Goto https://script.google.com/home to create new project , take the source code Code.gs and Index.html from this place.\
 Inside the project, add the services "Google Drive API" and "Google Document API" accordingly.\
 &nbsp;
