@@ -20,9 +20,9 @@ Upload a few resumes files inside. It can be word document format, google docume
 [2]\
 Goto https://script.google.com/home to create new project , take the source code Code.gs and Index.html from this place.\
 Inside the project, add the services "Google Drive API" and "Google Document API" accordingly.\
-&nbsp;
+\
 Click on the "Deploy" button to define the project deployment type as "Web App".\
-&nbsp;
+
 ### Learning Google App Script
 
 You can find the official documentation from Google, example.\
@@ -31,7 +31,7 @@ You can find the official documentation from Google, example.\
 
 ## What is Cosine Similarity
 
-This is a topic in Data science under NLP
+This is a topic in Data science under NLP\
 
     https://www.sciencedirect.com/topics/computer-science/cosine-similarity
 
