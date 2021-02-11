@@ -7,7 +7,7 @@ Resume Ranking baesd on a given JD ( job description google document).
 
 [![Reumes ranking using cosine similarity](https://github.com/WingsMaker/ResumeRanking/blob/main/screen_shot.jpg)](https://script.google.com/macros/s/AKfycbwU8pxfhZlnYflCPVZwnb9ka_8ZrUHvDfot02Yg6Hoo7Kv62Y-eZfdJ/exec)
  
-## Objective : What does the games do ?
+## Objective : What does the application do ?
 
 To compare resume using cosine similarity on JD ( job description in google docs ) versus resumes files inside google drive.
 
